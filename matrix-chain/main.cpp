@@ -8,7 +8,7 @@
 #define INF INT_MAX
 using namespace std;
 
-int mcm(int n, vector<int> &righe) {
+int mcm(int n, vector<int> &matrici) {
   ++n;
   vector<vector<int>> m(n, vector<int>(n, 0));
   for (int delta = 2; delta < n; delta++) {
@@ -16,7 +16,7 @@ int mcm(int n, vector<int> &righe) {
       int j = i + delta - 1;
       m[i][j] = INF;
       for (int k = i; k < j; k++) {
-        int q = m[i][k] + m[k + 1][j] + righe[i - 1] * righe[k] * righe[j];
+        int q = m[i][k] + m[k + 1][j] + matrici[i - 1] * matrici[k] * matrici[j];
         // cout << q << endl;
         m[i][j] = min(q, m[i][j]);
       }
@@ -50,20 +50,22 @@ int main() {
   ofstream output("output.txt");
   int n_matrici;
   string matrice;
-  vector<int> righe, colonne;
+  vector<int> matrici, colonne;
   pair<int, int> matrixpair;
   for (int i = 0; i < TASK; i++) {
-    righe.resize(0);
+    matrici.resize(0);
     colonne.resize(0);
     input >> n_matrici;
-    for (int j = 0; j < n_matrici; j++) {
+    input >> matrice;
+    matrixpair = getMatrixNumbers(matrice);
+    matrici.push_back(matrixpair.first);
+    matrici.push_back(matrixpair.second);
+    for (int j = 1; j < n_matrici; j++) {
       input >> matrice;
       matrixpair = getMatrixNumbers(matrice);
-      righe.push_back(matrixpair.first);
-      colonne.push_back(matrixpair.second); // bodge!
+      matrici.push_back(matrixpair.second);
     }
-    righe.push_back(colonne.back());
 
-    output << mcm(n_matrici, righe) << endl;
+    output << mcm(n_matrici, matrici) << endl;
   }
 }
