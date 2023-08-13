@@ -4,26 +4,27 @@
 #include <sstream>
 #include <utility>
 #include <vector>
-#define TASK 3
+#define TASK 100
 #define INF INT_MAX
 using namespace std;
 
 int mcm(int n, vector<int> &matrici) {
   ++n;
   vector<vector<int>> m(n, vector<int>(n, 0));
-  for (int delta = 2; delta < n; delta++) {
-    for (int i = 1; i < n - delta + 1; i++) {
-      int j = i + delta - 1;
+  for (int delta = 1; delta < n; delta++) {
+    for (int i = 1; i < n - delta; i++) {
+      int j = i + delta;
       m[i][j] = INF;
       for (int k = i; k < j; k++) {
-        int q = m[i][k] + m[k + 1][j] + matrici[i - 1] * matrici[k] * matrici[j];
+        int q =
+            m[i][k] + m[k + 1][j] + matrici[i - 1] * matrici[k] * matrici[j];
         // cout << q << endl;
         m[i][j] = min(q, m[i][j]);
       }
       // cout << endl;
     }
   }
-#if 0
+#if 1
   for(int i=1;i<n;i++){
     for(int j=1;j<n;j++){
         cout << m[i][j] << "\t";

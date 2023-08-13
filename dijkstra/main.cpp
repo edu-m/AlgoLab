@@ -11,7 +11,6 @@ Codice lasciato per convenienza, non mantenuto, né concluso. Si riferisca a alt
 #define INF INT_MAX
 using namespace std;
 
-template <class T>
 struct comp
 {
     bool operator()(const pair<int, int> &x, const pair<int, int> &y)
