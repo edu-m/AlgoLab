@@ -7,7 +7,7 @@ using namespace std;
 #define TASK 1
 #define INF 1001
 
-int mintagliForRest(int R, int N, const vector<int> &tagli)
+int calcolaResto(int R, int N, const vector<int> &tagli)
 {
     vector<vector<int>> matrix(N + 1, vector<int>(R + 1, INF));
 
@@ -56,7 +56,7 @@ int main()
         tagli.resize(N);
         for (int i = 0; i < N; ++i)
             input >> tagli[i];
-        int result = mintagliForRest(R, N, tagli);
+        int result = calcolaResto(R, N, tagli);
         output << result << endl;
     }
 }
