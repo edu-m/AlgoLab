@@ -3,10 +3,10 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
+using namespace std;
 #define RED 0
 #define BLACK 1
-
+#define TASK 100
 template <class T> class Node {
 public:
   T key;
@@ -15,25 +15,26 @@ public:
   Node<T> *left;
   Node<T> *right;
 
-  Node(T key)
-      : key(key), color(RED), parent(NULL), left(NULL), right(NULL) {}
+  Node(T key) : key(key), color(RED), parent(NULL), left(NULL), right(NULL) {}
 };
 
 template <class T> class RBtree {
-private:
+public:
   Node<T> *root;
 
   void fixup_rbtree(Node<T> *node) {
     while (node->parent && node->parent->color == RED) {
       if (node->parent == node->parent->parent->left) {
         Node<T> *uncle = node->parent->parent->right;
-        if (uncle && uncle->color == RED) {
+        if (uncle &&
+            uncle->color == RED) { // zio rosso, non ruotiamo ma ci limitiamo a
+                                   // cambiare colore tra padre-zio e nonno
           node->parent->color = BLACK;
           uncle->color = BLACK;
           node->parent->parent->color = RED;
           node = node->parent->parent;
-        } else {
-          if (node == node->parent->right) {
+        } else {                             // altrimenti rotazione
+          if (node == node->parent->right) { // caso "3"
             node = node->parent;
             rotateLeft(node);
           }
@@ -94,7 +95,7 @@ private:
     y->parent = x;
   }
 
-  void inorder(Node<T> *node, std::ofstream &output) {
+  void inorder(Node<T> *node, ofstream &output) {
     if (node) {
 
       inorder(node->left, output);
@@ -104,7 +105,7 @@ private:
     }
   }
 
-  void preorder(Node<T> *node, std::ofstream &output) {
+  void preorder(Node<T> *node, ofstream &output) {
     if (node) {
       output << "(" << node->key << " " << (node->color == BLACK ? "B" : "R")
              << ") ";
@@ -113,7 +114,7 @@ private:
     }
   }
 
-  void postorder(Node<T> *node, std::ofstream &output) {
+  void postorder(Node<T> *node, ofstream &output) {
     if (node) {
       postorder(node->left, output);
       postorder(node->right, output);
@@ -121,8 +122,6 @@ private:
              << ") ";
     }
   }
-
-public:
   RBtree() : root(NULL) {}
 
   void insert(T key) {
@@ -150,7 +149,7 @@ public:
     fixup_rbtree(newNode);
   }
 
-  void traverse(std::string order, std::ofstream &output) {
+  void traverse(string order, ofstream &output) {
 
     if (order == "inorder")
       inorder(root, output);
@@ -159,45 +158,44 @@ public:
     else if (order == "postorder")
       postorder(root, output);
   }
+
+  int findHeight(Node<T> *temp) {
+    if (temp == NULL)
+      return 0;
+    int depth_left = findHeight(temp->left);
+    int depth_right = findHeight(temp->right);
+
+    if (depth_left > depth_right)
+      return ++depth_left;
+    return ++depth_right;
+  }
 };
 
 int main() {
-  std::ifstream inputFile("input.txt");
-  std::ofstream outputFile("output.txt");
+  ifstream inputFile("input.txt");
+  ofstream outputFile("output.txt");
 
-  for (int task = 0; task < 100; ++task) {
-    std::string type;
+  for (int i = 0; i < TASK; i++) {
+    string type;
     int N;
-    std::string order;
-    inputFile >> type >> N >> order;
-
+    inputFile >> type >> N;
     if (type == "int") {
       RBtree<int> tree;
-
       for (int i = 0; i < N; ++i) {
         int value;
         inputFile >> value;
         tree.insert(value);
       }
-
-      tree.traverse(order, outputFile);
+      outputFile << tree.findHeight(tree.root) << endl;
     }
     if (type == "double") {
       RBtree<double> tree;
-
       for (int i = 0; i < N; ++i) {
         double value;
         inputFile >> value;
         tree.insert(value);
       }
-
-      tree.traverse(order, outputFile);
+      outputFile << tree.findHeight(tree.root) << endl;
     }
-    outputFile << std::endl;
   }
-
-  inputFile.close();
-  outputFile.close();
-
-  return 0;
 }

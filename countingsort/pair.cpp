@@ -77,7 +77,6 @@ int main() {
       input >> stringtemp[1];
       temp_paio = getPaio(stringtemp);
       paia.push_back(temp_paio);
-      //      cout << paia[j].first << " " << paia[j].second << endl;
     }
     vector<paio> sorted = countingsort(paia);
     for (int j = 0; j < number; j++)

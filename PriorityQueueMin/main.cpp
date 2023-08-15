@@ -1,8 +1,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
 using namespace std;
 #if 0
 #define TASK 1
@@ -18,14 +18,13 @@ string parseInput(string input) {
   return input.substr(2, input.length());
 }
 
-template <class T>
-struct comp{
-    bool operator()(const pair<T,int>&x,const pair<T,int>&y){
-        if(x.first < y.first || (x.first == y.first && x.second < y.second)){
-            return true;
-        }
-        return false;
+template <class T> struct comp {
+  bool operator()(const pair<T, int> &x, const pair<T, int> &y) {
+    if (x.first < y.first || (x.first == y.first && x.second < y.second)) {
+      return true;
     }
+    return false;
+  }
 };
 
 int getParent(int index) { return index / 2 - (index % 2 == 0); }
