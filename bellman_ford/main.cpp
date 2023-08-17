@@ -25,9 +25,8 @@ public:
     }
     cammini_minimi[sorgente] = 0;
     for (int i = 0; i < n_archi; i++) {
-        for(int j=0;j<n_nodi;j++){
-            
-        }
+      for (int j = 0; j < n_nodi; j++) {
+      }
     }
   }
 };

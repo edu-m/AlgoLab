@@ -20,10 +20,7 @@ string parseInput(string input) {
 
 template <class T> struct comp {
   bool operator()(const pair<T, int> &x, const pair<T, int> &y) {
-    if (x.first < y.first || (x.first == y.first && x.second < y.second)) {
-      return true;
-    }
-    return false;
+    return (x.first < y.first || (x.first == y.first && x.second < y.second));
   }
 };
 
