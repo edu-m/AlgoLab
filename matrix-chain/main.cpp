@@ -4,7 +4,7 @@
 #include <sstream>
 #include <utility>
 #include <vector>
-#define TASK 100
+#define TASK 3
 #define INF INT_MAX
 using namespace std;
 
@@ -16,18 +16,16 @@ int mcm(int n, vector<int> &matrici) {
       int j = i + delta;
       m[i][j] = INF;
       for (int k = i; k < j; k++) {
-        int q =
-            m[i][k] + m[k + 1][j] + matrici[i - 1] * matrici[k] * matrici[j];
         // cout << q << endl;
-        m[i][j] = min(q, m[i][j]);
+        m[i][j] = min(m[i][k] + m[k + 1][j] + matrici[i - 1] * matrici[k] * matrici[j], m[i][j]);
       }
       // cout << endl;
     }
   }
 #if 1
-  for(int i=1;i<n;i++){
-    for(int j=1;j<n;j++){
-        cout << m[i][j] << "\t";
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      cout << m[i][j] << "\t";
     }
     cout << endl;
   }
@@ -41,8 +39,7 @@ pair<int, int> getMatrixNumbers(string input) {
   //   cout << input << endl;
   string m1, m2;
   stringstream istr(input);
-  getline(istr, m1, ' ');
-  getline(istr, m2);
+  istr >> m1 >> m2;
   return make_pair(stoi(m1), stoi(m2));
 }
 

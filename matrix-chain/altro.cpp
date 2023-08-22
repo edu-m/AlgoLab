@@ -31,8 +31,7 @@ pair<int, int> getMatrixNumbers(string input) {
   //   cout << input << endl;
   string m1, m2;
   stringstream istr(input);
-  getline(istr, m1, ' ');
-  getline(istr, m2);
+  istr >> m1 >> m2;
   return make_pair(stoi(m1), stoi(m2));
 }
 
