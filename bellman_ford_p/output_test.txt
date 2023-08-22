@@ -1,0 +1,200 @@
+sorgente input: 1
+sorgente: 1
+sorgente input: 1
+sorgente: 1
+sorgente input: 4
+sorgente: 4
+sorgente input: 0
+sorgente: 0
+sorgente input: 2
+sorgente: 2
+sorgente input: 5
+sorgente: 5
+sorgente input: 3
+sorgente: 3
+sorgente input: 2
+sorgente: 2
+sorgente input: 1
+sorgente: 1
+sorgente input: 4
+sorgente: 4
+sorgente input: 5
+sorgente: 5
+sorgente input: 5
+sorgente: 5
+sorgente input: 7
+sorgente: 7
+sorgente input: 8
+sorgente: 8
+sorgente input: 3
+sorgente: 3
+sorgente input: 0
+sorgente: 0
+sorgente input: 2
+sorgente: 2
+sorgente input: 5
+sorgente: 5
+sorgente input: 1
+sorgente: 1
+sorgente input: 3
+sorgente: 3
+sorgente input: 5
+sorgente: 5
+sorgente input: 3
+sorgente: 3
+sorgente input: 3
+sorgente: 3
+sorgente input: 12
+sorgente: 12
+sorgente input: 2
+sorgente: 2
+sorgente input: 8
+sorgente: 8
+sorgente input: 13
+sorgente: 13
+sorgente input: 5
+sorgente: 5
+sorgente input: 7
+sorgente: 7
+sorgente input: 0
+sorgente: 0
+sorgente input: 5
+sorgente: 5
+sorgente input: 12
+sorgente: 12
+sorgente input: 8
+sorgente: 8
+sorgente input: 3
+sorgente: 3
+sorgente input: 8
+sorgente: 8
+sorgente input: 15
+sorgente: 15
+sorgente input: 15
+sorgente: 15
+sorgente input: 17
+sorgente: 17
+sorgente input: 13
+sorgente: 13
+sorgente input: 2
+sorgente: 2
+sorgente input: 11
+sorgente: 11
+sorgente input: 0
+sorgente: 0
+sorgente input: 7
+sorgente: 7
+sorgente input: 14
+sorgente: 14
+sorgente input: 2
+sorgente: 2
+sorgente input: 15
+sorgente: 15
+sorgente input: 7
+sorgente: 7
+sorgente input: 18
+sorgente: 18
+sorgente input: 17
+sorgente: 17
+sorgente input: 7
+sorgente: 7
+sorgente input: 12
+sorgente: 12
+sorgente input: 18
+sorgente: 18
+sorgente input: 7
+sorgente: 7
+sorgente input: 17
+sorgente: 17
+sorgente input: 12
+sorgente: 12
+sorgente input: 3
+sorgente: 3
+sorgente input: 11
+sorgente: 11
+sorgente input: 6
+sorgente: 6
+sorgente input: 21
+sorgente: 21
+sorgente input: 4
+sorgente: 4
+sorgente input: 12
+sorgente: 12
+sorgente input: 0
+sorgente: 0
+sorgente input: 1
+sorgente: 1
+sorgente input: 6
+sorgente: 6
+sorgente input: 14
+sorgente: 14
+sorgente input: 6
+sorgente: 6
+sorgente input: 18
+sorgente: 18
+sorgente input: 22
+sorgente: 22
+sorgente input: 24
+sorgente: 24
+sorgente input: 8
+sorgente: 8
+sorgente input: 6
+sorgente: 6
+sorgente input: 24
+sorgente: 24
+sorgente input: 24
+sorgente: 24
+sorgente input: 5
+sorgente: 5
+sorgente input: 8
+sorgente: 8
+sorgente input: 14
+sorgente: 14
+sorgente input: 24
+sorgente: 24
+sorgente input: 27
+sorgente: 27
+sorgente input: 9
+sorgente: 9
+sorgente input: 23
+sorgente: 23
+sorgente input: 26
+sorgente: 26
+sorgente input: 4
+sorgente: 4
+sorgente input: 19
+sorgente: 19
+sorgente input: 20
+sorgente: 20
+sorgente input: 25
+sorgente: 25
+sorgente input: 33
+sorgente: 33
+sorgente input: 20
+sorgente: 20
+sorgente input: 34
+sorgente: 34
+sorgente input: 8
+sorgente: 8
+sorgente input: 32
+sorgente: 32
+sorgente input: 5
+sorgente: 5
+sorgente input: 27
+sorgente: 27
+sorgente input: 23
+sorgente: 23
+sorgente input: 12
+sorgente: 12
+sorgente input: 22
+sorgente: 22
+sorgente input: 22
+sorgente: 22
+sorgente input: 9
+sorgente: 9
+sorgente input: 10
+sorgente: 10
+sorgente input: 17
+sorgente: 17
+sorgente input: 20
+sorgente: 20
