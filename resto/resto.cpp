@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#define TASK 3
+#define TASK 1
 #define INF 1001
 
 int calcolaResto(int R, int N, const vector<int> &tagli) {
