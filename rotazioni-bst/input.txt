@@ -1,0 +1,3 @@
+int 10 2 postorder ins:130 ins:144 ins:23 ins:240 ins:192 ins:87 ins:127 ins:40 ins:3 ins:9 right:23 right:144 
+int 10 2 postorder ins:158 ins:297 ins:204 ins:131 ins:75 ins:98 ins:199 ins:212 ins:157 ins:208 right:208 right:131 
+int 10 2 preorder ins:180 ins:223 ins:160 ins:45 ins:225 ins:56 ins:297 ins:204 ins:150 ins:212 left:297 left:297
