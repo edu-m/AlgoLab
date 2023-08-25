@@ -43,9 +43,8 @@ public:
   }
   void print() {
     for (int i = 0; i < this->slots; i++) {
-      typename list<T>::iterator it;
-      for (it = table[i].begin(); it != table[i].end(); it++)
-        cout << *it << " ";
+      for (auto &el : table[i])
+        cout << el << " ";
       cout << "\n";
     }
   }

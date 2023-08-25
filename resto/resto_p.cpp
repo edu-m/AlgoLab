@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#define TASK 3
+#define TASK 100
 #define INF 1001
 
 void printUsedCoins(ofstream &output, const vector<vector<int>> &matrix,
