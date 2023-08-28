@@ -24,12 +24,6 @@ template <class T> void heapify(vector<T> &_queue, int i, int heapsize) {
   if (l < heapsize && compare(_queue[l], _queue[min]))
     min = l;
 
-  // if (l < heapsize && compare(_queue[l], _queue[min]))
-  //   min = l;
-
-  // if (r < heapsize && compare(_queue[r], _queue[min]))
-  //   min = r;
-
   if (r < heapsize && compare(_queue[r], _queue[min]))
     min = r;
 
@@ -52,7 +46,6 @@ template <class T> void heapsort(vector<pair<T, T>> &heap) {
 
 template <class T> void insert(pair<T, T> value, vector<pair<T, T>> &heap) {
   // int index = heap.size();
-  heap.push_back(value);
 
   // while (index > 0 && heap[getParent(index)] < heap[index]) {
   //   swap(heap[getParent(index)], heap[index]);
@@ -90,7 +83,7 @@ int main() {
         input >> temp >> temp1;
         pair<string, string> p1 = parseInput(temp, temp1);
         pair<int, int> pair = make_pair(stoi(p1.first), stoi(p1.second));
-        insert(pair, heap);
+        heap.push_back(pair);
       }
       heapsort(heap);
       print_heap(heap, output);
@@ -100,7 +93,7 @@ int main() {
         input >> temp >> temp1;
         pair<string, string> p1 = parseInput(temp, temp1);
         pair<bool, bool> pair = make_pair(stoi(p1.first), stoi(p1.second));
-        insert(pair, heap);
+        heap.push_back(pair);
       }
       heapsort(heap);
       print_heap(heap, output);
@@ -108,11 +101,10 @@ int main() {
       vector<pair<double, double>> heap = vector<pair<double, double>>();
       for (int j = 0; j < number; j++) {
         input >> temp >> temp1;
-        pair<double, double> pair =
-            make_pair(stod(parseInput(temp, temp1).first),
-                      stod(parseInput(temp, temp1).second));
+        pair<string, string> p1 = parseInput(temp, temp1);
+        pair<double, double> pair = make_pair(stod(p1.first), stod(p1.second));
 
-        insert(pair, heap);
+        heap.push_back(pair);
       }
       heapsort(heap);
       print_heap(heap, output);
@@ -120,10 +112,10 @@ int main() {
       vector<pair<char, char>> heap = vector<pair<char, char>>();
       for (int j = 0; j < number; j++) {
         input >> temp >> temp1;
-        pair<char, char> pair = make_pair(parseInput(temp, temp1).first[0],
-                                          parseInput(temp, temp1).second[0]);
+        pair<string, string> p1 = parseInput(temp, temp1);
+        pair<char, char> pair = make_pair(p1.first[0], p1.second[0]);
 
-        insert(pair, heap);
+        heap.push_back(pair);
       }
       heapsort(heap);
       print_heap(heap, output);
