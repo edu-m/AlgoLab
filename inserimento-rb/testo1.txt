@@ -1,0 +1,40 @@
+  void fix_up(Node<T> *node) {
+    while (node->parent && node->parent->color == RED) {
+      if (node->parent == node->parent->parent->left) {
+        Node<T> *uncle = node->parent->parent->right;
+        if (uncle &&
+            uncle->color == RED) {
+          node->parent->color = BLACK;
+          uncle->color = BLACK;
+          node->parent->parent->color = RED;
+          node = node->parent->parent;
+        } else {
+          if (node == node->parent->right) {
+            node = node->parent;
+            rotateLeft(node);
+          }
+          node->parent->color = BLACK;
+          node->parent->parent->color = RED;
+          rotateRight(node->parent->parent);
+        }
+      } else {
+        Node<T> *uncle = node->parent->parent->left;
+        if (uncle && uncle->color == RED) {
+          node->parent->color = BLACK;
+          uncle->color = BLACK;
+          uncle->parent->color = RED;
+          node = node->parent->parent;
+        } else {
+          if (node == node->parent->left) {
+            node = node->parent;
+            rotateRight(node);
+          }
+          node->parent->color = BLACK;
+          node->parent->parent->color = RED;
+          rotateLeft(node->parent->parent);
+        }
+      }
+    }
+    root->color = BLACK;
+  }
+    

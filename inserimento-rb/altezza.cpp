@@ -63,36 +63,50 @@ public:
     root->color = BLACK;
   }
 
-  void rotateLeft(Node<T> *x) {
-    Node<T> *y = x->right;
-    x->right = y->left;
-    if (y->left)
-      y->left->parent = x;
-    y->parent = x->parent;
-    if (!x->parent)
-      root = y;
-    else if (x == x->parent->left)
-      x->parent->left = y;
+  void rotateLeft(Node<T> *A) {
+    Node<T> *C = A->right;
+
+    A->right = C->left; // "Padre -> Figlio" del destro di A
+    if (C->left) // se esiste il figlio sinistro di C, allora dovrà diventare
+                 // figlio destro di A, impostando la relazione "Figlio ->
+                 // Padre"
+      C->left->parent = A;
+
+    C->parent = A->parent; // Inoltre, la relazione "Figlio -> Padre" avrà un
+                           // corrispondente "Padre -> Figlio"
+
+    if (!A->parent) // se il nodo su cui si chiama la rotazione era la radice, C
+                    // diventa la radice
+      root = C;
+    else if (A == A->parent->left) // altrimenti verifichiamo se era figlio
+                                   // sinistro o destro
+      A->parent->left = C;
     else
-      x->parent->right = y;
-    y->left = x;
-    x->parent = y;
+      A->parent->right = C;
+
+    C->left =
+        A; // adesso il figlio sinistro di C è A, così effettuiamo la rotazione
+    A->parent = C; // concludiamo, come sempre, la relazione correggendo la
+                   // relazione al verso opposto
   }
 
-  void rotateRight(Node<T> *y) {
-    Node<T> *x = y->left;
-    y->left = x->right;
-    if (x->right)
-      x->right->parent = y;
-    x->parent = y->parent;
-    if (!y->parent)
-      root = x;
-    else if (y == y->parent->left)
-      y->parent->left = x;
+  void rotateRight(Node<T> *A) {
+    Node<T> *C = A->left;
+
+    A->left = C->right;
+    if (C->right)
+      C->right->parent = A;
+
+    C->parent = A->parent;
+    if (!A->parent)
+      root = C;
+    else if (A == A->parent->right)
+      A->parent->right = C;
     else
-      y->parent->right = x;
-    x->right = y;
-    y->parent = x;
+      A->parent->left = C;
+
+    C->right = A;
+    A->parent = C;
   }
 
   void inorder(Node<T> *node, ofstream &output) {
