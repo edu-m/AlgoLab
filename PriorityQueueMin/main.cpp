@@ -30,9 +30,9 @@ template <class T> void heapify(vector<T> &queue, int index) {
   int r = getRight(index);
   int min = index;
 
-  if (l <= queue.size() - 1 && queue[l] < queue[min])
+  if (l < queue.size() - 1 && queue[l] < queue[min])
     min = l;
-  if (r <= queue.size() - 1 && queue[r] < queue[min])
+  if (r < queue.size() - 1 && queue[r] < queue[min])
     min = r;
 
   if (min != index) {
