@@ -18,18 +18,13 @@ string parseInput(string input) {
   return input.substr(2, input.length());
 }
 
-template <class T> struct comp {
-  bool operator()(const pair<T, int> &x, const pair<T, int> &y) {
-    return (x.first < y.first || (x.first == y.first && x.second < y.second));
-  }
-};
 
 int getParent(int index) { return index / 2 - (index % 2 == 0); }
 int getLeft(int index) { return index * 2 + 1; }
 int getRight(int index) { return index * 2 + 2; }
 
 template <class T> void heapify(vector<T> &queue, int index) {
-  // cout <<index<<endl;
+  // output <<index<<endl;
   ++heapifycount;
   int l = getLeft(index);
   int r = getRight(index);
@@ -41,14 +36,14 @@ template <class T> void heapify(vector<T> &queue, int index) {
     min = r;
 
   if (min != index) {
-    // cout << "swap tra " << queue[min] << " e " << queue[index] << endl;
+    // output << "swap tra " << queue[min] << " e " << queue[index] << endl;
     swap(queue[min], queue[index]);
     heapify(queue, min);
   }
 }
 
 template <class T> void insert(vector<T> &queue, T key) {
-  // cout << key << endl;
+  // output << key << endl;
   queue.push_back(key);
   int index = queue.size() - 1;
 
@@ -61,13 +56,13 @@ template <class T> void extractMin(vector<T> &queue) {
   if (queue.size() == 0)
     return;
   if (queue.size() == 1) {
-    // cout << "size = 1"<<endl;
+    // output << "size = 1"<<endl;
     queue.pop_back();
     return;
   }
   swap(queue[0], queue[queue.size() - 1]);
   queue.pop_back();
-  // cout << "chiamata heapify su " << queue.size()<<endl;
+  // output << "chiamata heapify su " << queue.size()<<endl;
   heapify(queue, 0);
 }
 
@@ -84,20 +79,20 @@ int main() {
       queue.resize(0);
       for (int j = 0; j < number; j++) {
         input >> temp;
-        // cout << temp << " ";
+        // output << temp << " ";
         string parsed = parseInput(temp);
         if (parsed == "extract") {
           extractMin(queue);
         } else {
-          // cout << "inserisco "<<parsed<<" ";
+          // output << "inserisco "<<parsed<<" ";
           insert(queue, stoi(parsed));
         }
       }
-      cout << heapifycount << " ";
+      output << heapifycount << " ";
       for (int j = 0; j < queue.size(); j++) {
-        cout << queue[j] << " ";
+        output << queue[j] << " ";
       }
-      cout << endl;
+      output << endl;
     }
     if (type == "char") {
       vector<char> queue;
@@ -111,51 +106,51 @@ int main() {
           insert(queue, parsed[0]);
         }
       }
-      cout << heapifycount << " ";
+      output << heapifycount << " ";
       for (int j = 0; j < queue.size(); j++) {
-        cout << queue[j] << " ";
+        output << queue[j] << " ";
       }
-      cout << endl;
+      output << endl;
     }
     if (type == "bool") {
       vector<int> queue;
       queue.resize(0);
       for (int j = 0; j < number; j++) {
         input >> temp;
-        // cout << temp << " ";
+        // output << temp << " ";
         string parsed = parseInput(temp);
         if (parsed == "extract") {
           extractMin(queue);
         } else {
-          // cout << "inserisco "<<parsed<<" ";
+          // output << "inserisco "<<parsed<<" ";
           insert(queue, stoi(parsed));
         }
       }
-      cout << heapifycount << " ";
+      output << heapifycount << " ";
       for (int j = 0; j < queue.size(); j++) {
-        cout << queue[j] << " ";
+        output << queue[j] << " ";
       }
-      cout << endl;
+      output << endl;
     }
     if (type == "double") {
       vector<double> queue;
       queue.resize(0);
       for (int j = 0; j < number; j++) {
         input >> temp;
-        // cout << temp << " ";
+        // output << temp << " ";
         string parsed = parseInput(temp);
         if (parsed == "extract") {
           extractMin(queue);
         } else {
-          // cout << "inserisco "<<parsed<<" ";
+          // output << "inserisco "<<parsed<<" ";
           insert(queue, stod(parsed));
         }
       }
-      cout << heapifycount << " ";
+      output << heapifycount << " ";
       for (int j = 0; j < queue.size(); j++) {
-        cout << queue[j] << " ";
+        output << queue[j] << " ";
       }
-      cout << endl;
+      output << endl;
     }
   }
 }
