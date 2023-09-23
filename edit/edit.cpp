@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-#define TASK 100
+#define TASK 1
 
 using namespace std;
 
@@ -22,7 +22,11 @@ int edit(int sl1, int sl2, string s1, string s2) {
         matrix[i][j] =
             min(matrix[i - 1][j - 1], min(matrix[i - 1][j], matrix[i][j - 1])) +
             1;
-
+for(int i = 0;i<sl1+1;i++){
+	for(int j=0;j<sl2+1;j++)
+		cout << matrix[i][j] << " ";
+	cout << endl;
+}
   return matrix[sl1][sl2];
 }
 int main() {
